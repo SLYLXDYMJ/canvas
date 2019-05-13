@@ -9,6 +9,15 @@
         <cross-line-md/>
       </div>
     </div>
+    <!-- 粒子效果 -->
+    <div class="row space-10 mb-4">
+      <div class="col-6">
+        <div id="particles"></div>
+      </div>
+      <div class="col-6">
+        <particles-md/>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -17,12 +26,23 @@
   import '../node_modules/github-markdown-css/github-markdown.css';
   import crossLine from '../src/cross-line';
   import CrossLineMd from '../src/cross-line/README.md';
+  import ParticlesMd from '../src/particles/README.md';
+  import 'particles.js';
 
   let methods = {
     crossLine () {
       crossLine({
         canvasEl: '#cross-line',
         lineNum: 14
+      });
+    },
+    particlesJS () {
+      particlesJS('particles', {
+        particles: {
+          size: {
+            value: 3
+          }
+        }
       });
     }
   };
@@ -36,7 +56,8 @@
       }
     },
     components: {
-      CrossLineMd
+      CrossLineMd,
+      ParticlesMd
     }
   };
 </script>
@@ -48,9 +69,13 @@
     padding: 50px;
   }
 
-  canvas {
+  canvas, #particles {
     display: block;
     width: 100%;
     height: 500px;
+  }
+
+  #particles {
+    background-color: black;
   }
 </style>
